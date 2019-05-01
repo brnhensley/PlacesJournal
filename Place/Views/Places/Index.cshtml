@@ -1,0 +1,41 @@
+@using PlacesYouveBeen.Models;
+
+@* <h1>To Do List</h1>
+<ul>
+
+@if (Model.Count == 0)
+{
+  <p>You have no Places in your to do list!</p>
+}
+@if(Model.Count != 0)
+{
+  @foreach (Place place in Model)
+  {
+     <li><a href='/Places/@place.GetId()'>@Model.GetPlacesVisited()</a></li>
+  }
+}
+
+</ul>
+<a href="/Places/new">Add a city you've been to.</a>
+
+<form action="/Places/delete" method="post">
+  <button type="submit" name="button">Clear All places</button>
+</form> *@
+
+
+<h1>Welcome to the Places Journal!</h1>
+<a href='/places/new'>Add a Place You've Visited<a/>
+<a href='/places'></a>
+
+@* <ul>
+  <li>@Place.GetCityName()</li>
+</ul> *@
+
+<ul>
+
+@foreach (Place place in Model)
+{
+  <li>@place.GetCityName()</li>
+}
+
+</ul>
